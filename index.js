@@ -1,6 +1,14 @@
 
-import { NativeModules } from 'react-native';
+import { NativeModules, DeviceEventEmitter } from 'react-native';
 
-const { RNReactNativeZplblutooth } = NativeModules;
+const { RNZplblutooth } = NativeModules;
 
-export default RNReactNativeZplblutooth;
+RNZplblutooth.on = (eventName, handler)=>{
+    DeviceEventEmitter.addListener(eventName, handler)
+};
+
+RNZplblutooth.off = (eventName, handler)=>{
+    DeviceEventEmitter.addListener(eventName, handler)
+};
+
+export default RNZplblutooth;
